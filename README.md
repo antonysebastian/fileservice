@@ -210,4 +210,5 @@ The `config.proerties` file that is present inside the `file-service-<version>` 
 The logging is done to a file named file-service.log and logs for each day are automatically separated. All slf4j log levels are supported. The log levels for each package can be set in the `log-config.xml` file. Any change in the `log-config.xml` file is detected in 2 minutes. So the server need not be restarted when logging levels are changed.
 
 # Notes
-As of now, the server does not support TLS.
+- The db schema required for the server is mentioned in the file `src/extras/schema.sql`. Create the tables using this file and add entries into the `users` table for authentication. The username, role and md5 of the password should be stored in this table
+- As of now, the server does not support TLS.
