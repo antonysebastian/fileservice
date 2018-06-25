@@ -1,0 +1,1 @@
+nohup java -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -Dlog4j.configurationFile=./log-config.xml -jar file-service.jar > /dev/null 2>&1 &

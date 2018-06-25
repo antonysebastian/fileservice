@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="120" status="error">
+	<Properties>
+		<Property name="log-path">./logs</Property>
+	</Properties>
+
+	<Appenders>
+		<RollingFile name="file-log" fileName="${log-path}/file-service.log"
+			filePattern="${log-path}/file-service-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="com.fileservice.service" level="ERROR" additivity="false">
+			<appender-ref ref="file-log" />
+		</Logger>
+		<Logger name="com.fileservice.cache" level="ERROR" additivity="false">
+			<appender-ref ref="file-log" />
+		</Logger>
+		<Logger name="com.fileservice.fileserver" level="ERROR" additivity="false">
+			<appender-ref ref="file-log" />
+		</Logger>
+		<Logger name="org.glassfish.jersey" level="ERROR" additivity="false">
+			<appender-ref ref="file-log" />
+		</Logger>
+		<Logger name="org.glassfish.grizzly" level="ERROR" additivity="false">
+			<appender-ref ref="file-log" />
+		</Logger>
+		<Root level="ERROR">
+			<appender-ref ref="file-log" />
+		</Root>
+	</Loggers>
+</Configuration>
